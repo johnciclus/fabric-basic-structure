@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7dd7c9b2-5e89-491c-94a8-55034623dc9d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/fabric-basic-structure.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/javascript-low-level/enrollAdmin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/javascript-low-level/invoke.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/javascript-low-level/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/javascript-low-level/query.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/javascript-low-level/registerUser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/javascript/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/javascript/.eslintignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/javascript/.eslintrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/javascript/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/javascript/enrollAdmin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/javascript/invoke.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/javascript/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/javascript/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/javascript/query.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/javascript/registerUser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/typescript/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/typescript/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/typescript/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/typescript/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/typescript/src/enrollAdmin.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/typescript/src/invoke.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/typescript/src/query.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/typescript/src/registerUser.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/typescript/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/typescript/tslint.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/configtxgen" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/configtxlator" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/cryptogen" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/discover" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/fabric-ca-client" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/idemixgen" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/orderer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/peer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/config/channel.tx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/config/genesis.block" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/configtx.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/connection.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/connection.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/ordererOrganizations/example.com/ca/a0606a4a860a1e31c90a23788da6f3b6b74925ed0d23061af4899409ba46ae6a_sk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/ordererOrganizations/example.com/ca/ca.example.com-cert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/ordererOrganizations/example.com/msp/admincerts/Admin@example.com-cert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/ordererOrganizations/example.com/msp/cacerts/ca.example.com-cert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/ordererOrganizations/example.com/msp/tlscacerts/tlsca.example.com-cert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/msp/admincerts/Admin@example.com-cert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/msp/cacerts/ca.example.com-cert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/msp/keystore/4d2f776c0fef8eac3f460a7c3558dc7859c4fe458e262e674a6c23f242ea33d1_sk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/msp/signcerts/orderer.example.com-cert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/ca.crt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.key" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/ordererOrganizations/example.com/tlsca/8d2186556c85d515e737d0c0da8d0d7672785b685cb503bcb95e53dcc279fba7_sk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/ordererOrganizations/example.com/tlsca/tlsca.example.com-cert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/ordererOrganizations/example.com/users/Admin@example.com/msp/admincerts/Admin@example.com-cert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/ordererOrganizations/example.com/users/Admin@example.com/msp/cacerts/ca.example.com-cert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/ordererOrganizations/example.com/users/Admin@example.com/msp/keystore/1deeab5433fa6e5f045eb763109d6165268fba153211af1281f00d45f54b1022_sk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/ordererOrganizations/example.com/users/Admin@example.com/msp/signcerts/Admin@example.com-cert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/ordererOrganizations/example.com/users/Admin@example.com/msp/tlscacerts/tlsca.example.com-cert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/ordererOrganizations/example.com/users/Admin@example.com/tls/ca.crt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/ordererOrganizations/example.com/users/Admin@example.com/tls/server.crt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/ordererOrganizations/example.com/users/Admin@example.com/tls/server.key" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/peerOrganizations/org1.example.com/ca/4239aa0dcd76daeeb8ba0cda701851d14504d31aad1b2ddddbac6a57365e497c_sk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/peerOrganizations/org1.example.com/ca/ca.org1.example.com-cert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/peerOrganizations/org1.example.com/ca/org1.example.com-cert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/peerOrganizations/org1.example.com/msp/admincerts/Admin@org1.example.com-cert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/peerOrganizations/org1.example.com/msp/cacerts/ca.org1.example.com-cert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/peerOrganizations/org1.example.com/msp/tlscacerts/tlsca.org1.example.com-cert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/msp/admincerts/Admin@org1.example.com-cert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/msp/cacerts/ca.org1.example.com-cert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/msp/keystore/46be1d569fe68f33e517c9e0072a0ccfbfb42727480fb8c8d0223af321a7893d_sk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/msp/signcerts/peer0.org1.example.com-cert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/msp/tlscacerts/tlsca.org1.example.com-cert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/server.crt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/server.key" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/peerOrganizations/org1.example.com/tlsca/ed3fd82393e95fc2c475afc113c8d2c591f745d1babc4d6d9cce0a1acc168acb_sk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/peerOrganizations/org1.example.com/tlsca/tlsca.org1.example.com-cert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/admincerts/Admin@org1.example.com-cert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/cacerts/ca.org1.example.com-cert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/cd96d5260ad4757551ed4a5a991e62130f8008a0bf996e4e4b84cd097a747fec_sk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/signcerts/Admin@org1.example.com-cert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/tlscacerts/tlsca.org1.example.com-cert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/tls/ca.crt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/tls/server.crt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/tls/server.key" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/admincerts/User1@org1.example.com-cert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/cacerts/ca.org1.example.com-cert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/keystore/c75bd6911aca808941c3557ee7c97e90f3952e379497dc55eb903f31b50abc83_sk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/signcerts/User1@org1.example.com-cert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/tlscacerts/tlsca.org1.example.com-cert.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/tls/ca.crt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/tls/server.crt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/crypto-config/peerOrganizations/org1.example.com/users/User1@org1.example.com/tls/server.key" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/generate.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/init.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/start.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/stop.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/network/teardown.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart-contract/fabcar/go/fabcar.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart-contract/fabcar/javascript-low-level/fabcar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart-contract/fabcar/javascript-low-level/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart-contract/fabcar/javascript/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart-contract/fabcar/javascript/.eslintignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart-contract/fabcar/javascript/.eslintrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart-contract/fabcar/javascript/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart-contract/fabcar/javascript/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart-contract/fabcar/javascript/lib/fabcar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart-contract/fabcar/javascript/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart-contract/fabcar/javascript/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart-contract/fabcar/typescript/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart-contract/fabcar/typescript/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart-contract/fabcar/typescript/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart-contract/fabcar/typescript/src/car.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart-contract/fabcar/typescript/src/fabcar.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart-contract/fabcar/typescript/src/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart-contract/fabcar/typescript/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/smart-contract/fabcar/typescript/tslint.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/startFabric.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="105">
+                <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Readme.md" />
+        <option value="$PROJECT_DIR$/README.md" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+        <option value="$PROJECT_DIR$/.idea/fabric-basic-structure.iml" />
+        <option value="$PROJECT_DIR$/.idea/misc.xml" />
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+        <option value="$PROJECT_DIR$/.idea/modules.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="4">
+    <option name="y" value="27" />
+    <option name="width" value="960" />
+    <option name="height" value="1053" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="fabric-basic-structure" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fabric-basic-structure" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fabric-basic-structure" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fabric-basic-structure" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fabric-basic-structure" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fabric-basic-structure" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="javascript" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fabric-basic-structure" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fabric-basic-structure" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fabric-basic-structure" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fabric-basic-structure" type="462c0819:PsiDirectoryNode" />
+              <item name="network" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fabric-basic-structure" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fabric-basic-structure" type="462c0819:PsiDirectoryNode" />
+              <item name="smart-contract" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fabric-basic-structure" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fabric-basic-structure" type="462c0819:PsiDirectoryNode" />
+              <item name="smart-contract" type="462c0819:PsiDirectoryNode" />
+              <item name="fabcar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fabric-basic-structure" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fabric-basic-structure" type="462c0819:PsiDirectoryNode" />
+              <item name="smart-contract" type="462c0819:PsiDirectoryNode" />
+              <item name="hyperledger" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fabric-basic-structure" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fabric-basic-structure" type="462c0819:PsiDirectoryNode" />
+              <item name="smart-contract" type="462c0819:PsiDirectoryNode" />
+              <item name="hyperledger" type="462c0819:PsiDirectoryNode" />
+              <item name="fabric" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7dd7c9b2-5e89-491c-94a8-55034623dc9d" name="Default Changelist" comment="" />
+      <created>1561210034664</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1561210034664</updated>
+      <workItem from="1561210035782" duration="549000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="549000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="27" width="960" height="1053" extended-state="4" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2497332" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="GraphQL" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Readme.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="105">
+            <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
