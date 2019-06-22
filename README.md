@@ -4,9 +4,32 @@ Basic structure of a Hyperledger Fabric Project
 
 To run this project it's necessary to install Hyperledger Fabric prerequisites describe in this https://hyperledger-fabric.readthedocs.io/en/release-1.4/prereqs.html
 
+
+To build the network and deploy the smart contract
+
 ``
-./startFabric javascript
+./startFabric
 ``
+
+List the smart contracts installed 
+
+```
+peer chaincode list --installed -C mychannel
+```
+
+
+To update the smart contract
+
+```
+docker exec -e "CORE_PEER_LOCALMSPID=Org1MSP" -e "CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp" -it cli bash
+
+peer chaincode install -n bart -v 1.1 -p /opt/gopath/src/github.com/bart -l node
+
+peer chaincode upgrade -o orderer.example.com:7050 -C mychannel -n bart -v 1.1 -c '{"Args": []}' -P "OR ('Org1MSP.member','Org2MSP.member')"
+
+peer chaincode invoke -o orderer.example.com:7050 -C mychannel -n bart -c '{"function":"initLedger","Args":[]}'
+ 
+```
 
 
 Global Variables
