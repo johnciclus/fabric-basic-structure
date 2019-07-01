@@ -233,6 +233,76 @@ class Bart extends Contract {
         console.info('============= START : delete ===========');
         return await ctx.stub.deleteState(id);
     }
+
+    async createCreditOperation(ctx, id, creditOperation) {
+        console.info('============= START : Create Credit Guarantee ===========');
+        let creditOperationJSON = JSON.parse(creditOperation);
+
+        creditOperationJSON.docType = 'creditOperation';
+
+        return await ctx.stub.putState(id, Buffer.from(JSON.stringify(creditOperationJSON),'utf8'));
+    }
+
+    async findCreditOperation(ctx, id) {
+        const creditOperationAsBytes = await ctx.stub.getState(id);
+        if (!creditOperationAsBytes || creditOperationAsBytes.length === 0) {
+            throw new Error(`${id} does not exist`);
+        }
+        return creditOperationAsBytes.toString();
+    }
+
+    async findCreditOperations(ctx) {
+        const startKey = 'CO0';
+        const endKey = 'CO999';
+
+        const iterator = await ctx.stub.getStateByRange(startKey, endKey);
+
+        const allResults = [];
+        while (true) {
+            const res = await iterator.next();
+
+            if (res.value && res.value.value.toString()) {
+                //const Key = res.value.key;
+                let Record;
+                try {
+                    Record = JSON.parse(res.value.value.toString('utf8'));
+                } catch (err) {
+                    console.log(err);
+                    Record = res.value.value.toString();
+                }
+                allResults.push(Record);
+            }
+            if (res.done) {
+                console.log('end of data');
+                await iterator.close();
+                console.info(allResults);
+                return JSON.stringify(allResults, 'utf8');
+            }
+        }
+    }
+
+    async updateCreditOperation(ctx, id, properties) {
+        console.info('============= START : update ===========');
+
+        let propertiesObj = JSON.parse(properties);
+
+        const objectAsBytes = await ctx.stub.getState(id);
+        if (!objectAsBytes || objectAsBytes.length === 0) {
+            throw new Error(`${id} does not exist`);
+        }
+        const object = JSON.parse(objectAsBytes.toString());
+
+        Object.keys(propertiesObj).map(function (key) {
+            object[key] = propertiesObj[key];
+        });
+
+        return await ctx.stub.putState(id, Buffer.from(JSON.stringify(object),'utf8'));
+    }
+
+    async deleteCreditOperation(ctx, id) {
+        console.info('============= START : delete ===========');
+        return await ctx.stub.deleteState(id);
+    }
 }
 
 module.exports = Bart;

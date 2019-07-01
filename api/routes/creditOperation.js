@@ -6,7 +6,7 @@ const creditOperationModel = require('../models/creditOperation');
 async function create(contract, creditOperation) {
     return new Promise(function(resolve, reject){
         validateAll(creditOperation, creditOperationModel.rules).then(() => {
-            contract.submitTransaction('createGrower', creditOperation.id, JSON.stringify(creditOperation)).then( result => {
+            contract.submitTransaction('createCreditOperation', creditOperation.id, JSON.stringify(creditOperation)).then( result => {
                 resolve(JSON.parse(result));
             }).catch((errors)=>{
                 reject(errors);
