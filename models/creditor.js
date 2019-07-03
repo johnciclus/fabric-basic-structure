@@ -1,20 +1,18 @@
 'use strict';
 
-let stringsObjects = require('../helpers/stringsObjects');
+let stringsObjects = require('./helpers/stringsObjects');
 
 let schema = {
+    id:           'number',
+    name:         'string',
     address:      'string',
-    firstName:    'string',
-    id:           'string',
-    lastName:     'string',
     score:        'number'
 };
 
 let format = {
-    address:      'required',
-    firstName:    'required',
     id:           'required',
-    lastName:     'required',
+    name:         'required',
+    address:      'required',
     score:        'required|notString'
 };
 

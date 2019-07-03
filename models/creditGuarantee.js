@@ -1,9 +1,9 @@
 'use strict';
 
-let stringsObjects = require('../helpers/stringsObjects');
+let stringsObjects = require('./helpers/stringsObjects');
 
 let schema = {
-    id:              'string',
+    id:              'number',
     name:            'string',
     type:            'string',
     digitalAddress:  'string',

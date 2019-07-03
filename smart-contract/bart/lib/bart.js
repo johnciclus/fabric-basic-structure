@@ -22,6 +22,14 @@ class Bart extends Contract {
         console.info('============= END : Initialize Ledger ===========');
     }
 
+    async getHistory(ctx, id) {
+        console.info('============= START : Get History ===========');
+        if (!id) {
+            throw new Error('ID is mandatory does not exist');
+        }
+        return await ctx.stub.getHistoryForKey(id);
+    }
+
     async createGrower(ctx, id, grower) {
         console.info('============= START : Create Grower ===========');
         let growerJSON = JSON.parse(grower);
@@ -40,8 +48,8 @@ class Bart extends Contract {
     }
 
     async findGrowers(ctx) {
-        const startKey = 'G0';
-        const endKey = 'G999';
+        const startKey = 'Grower#0';
+        const endKey = 'Grower#999';
 
         const iterator = await ctx.stub.getStateByRange(startKey, endKey);
 
@@ -111,8 +119,8 @@ class Bart extends Contract {
     }
 
     async findCreditGuarantees(ctx) {
-        const startKey = 'CG0';
-        const endKey = 'CG999';
+        const startKey = 'CreditGuarantee#0';
+        const endKey = 'CreditGuarantee#999';
 
         const iterator = await ctx.stub.getStateByRange(startKey, endKey);
 
@@ -181,8 +189,8 @@ class Bart extends Contract {
     }
 
     async findCreditors(ctx) {
-        const startKey = 'C0';
-        const endKey = 'C999';
+        const startKey = 'Creditor#0';
+        const endKey = 'Creditor#999';
 
         const iterator = await ctx.stub.getStateByRange(startKey, endKey);
 
@@ -239,6 +247,7 @@ class Bart extends Contract {
         let creditOperationJSON = JSON.parse(creditOperation);
 
         creditOperationJSON.docType = 'creditOperation';
+        creditOperationJSON.state = 'created';
 
         return await ctx.stub.putState(id, Buffer.from(JSON.stringify(creditOperationJSON),'utf8'));
     }
@@ -252,8 +261,8 @@ class Bart extends Contract {
     }
 
     async findCreditOperations(ctx) {
-        const startKey = 'CO0';
-        const endKey = 'CO999';
+        const startKey = 'CreditOperation#0';
+        const endKey = 'CreditOperation#999';
 
         const iterator = await ctx.stub.getStateByRange(startKey, endKey);
 

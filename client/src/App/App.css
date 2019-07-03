@@ -1,0 +1,25 @@
+.App h1 {
+  text-align: center;
+}
+
+.ListItem {
+  margin-bottom: 48px;
+}
+
+.ButtonDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 24px;
+  padding-bottom: 24px;
+
+}
+
+.Button {
+  padding: 24px;
+}
+
+body {
+  padding: 24px;
+  background-color: #f1f3f7;
+}

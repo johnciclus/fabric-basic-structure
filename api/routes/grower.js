@@ -1,7 +1,8 @@
 'use strict';
 
+const className = 'Grower#';
 const { validateAll } = require('indicative');
-const growerModel = require('../models/grower');
+const growerModel = require('../../models/grower');
 
 // function getCommand() {
 //     if (process.argv.length >= 3) {
@@ -52,6 +53,7 @@ const growerModel = require('../models/grower');
 async function create(contract, grower) {
     return new Promise(function(resolve, reject){
         validateAll(grower, growerModel.rules).then(() => {
+            grower.id = className+grower.id;
             contract.submitTransaction('createGrower', grower.id, JSON.stringify(grower)).then( result => {
                 resolve(JSON.parse(result));
             }).catch((errors)=>{
@@ -68,6 +70,7 @@ async function find(contract, id) {
         if (!id) {
             reject('An identifier is mandatory');
         }
+        id = className+id;
 
         contract.evaluateTransaction('findGrower', id).then( result => {
             resolve(JSON.parse(result));
@@ -90,6 +93,7 @@ async function findAll(contract) {
 async function update(contract, id, properties) {
     return new Promise(function(resolve, reject){
         let stringProperties = JSON.stringify(properties);
+        id = className+id;
 
         contract.submitTransaction('updateGrower', id, stringProperties).then( result => {
             resolve(result);
@@ -101,6 +105,7 @@ async function update(contract, id, properties) {
 
 async function deleteById(contract, id) {
     return new Promise(function(resolve, reject){
+        id = className+id;
         // Evaluate the specified transaction.
         contract.submitTransaction('deleteGrower', id).then( result => {
             resolve(result);
@@ -110,49 +115,79 @@ async function deleteById(contract, id) {
     });
 }
 
-module.exports = function(contract) {
+module.exports = function(sessions) {
     return {
         create : function(req, res){
-            create(contract, req.body).then((result) => {
-                res.send({status: 'Grower created', details: result});
-            }).catch( error => {
+            let hash = req.get('hash');
+            if (hash in sessions) {
+                create(sessions[hash].contract, req.body).then((result) => {
+                    res.send({status: 'Grower created', details: result});
+                }).catch( error => {
+                    res.status(400);
+                    res.send(error);
+                });
+            } else {
                 res.status(400);
-                res.send(error);
-            });
+                res.send('The session doesn\'t exist');
+            }
         },
         find : function(req, res){
-            find(contract, req.params.id).then((grower) => {
-                let growerObj = JSON.parse(grower);
-                res.send(growerObj);
-            }).catch( error => {
+            let hash = req.get('hash');
+            if (hash in sessions) {
+                find(sessions[hash].contract, req.params.id).then((grower) => {
+                    let growerObj = JSON.parse(grower);
+                    res.send(growerObj);
+                }).catch( error => {
+                    res.status(400);
+                    res.send(error);
+                });
+            } else {
                 res.status(400);
-                res.send(error);
-            });
+                res.send('The session doesn\'t exist');
+            }
         },
         findAll : function(req, res){
-            findAll(contract).then((growers) => {
-                let growersObj = JSON.parse(growers);
-                res.send(growersObj);
-            }).catch( error => {
+            let hash = req.get('hash');
+            if (hash in sessions) {
+                findAll(sessions[hash].contract).then((growers) => {
+                    let growersObj = JSON.parse(growers);
+                    res.send(growersObj);
+                }).catch( error => {
+                    res.status(400);
+                    res.send(error);
+                });
+            } else {
                 res.status(400);
-                res.send(error);
-            });
+                res.send('The session doesn\'t exist');
+            }
         },
         update: function(req, res){
-            update(contract, req.params.id, req.body).then((result) => {
-                res.send('transaction submitted');
-            }).catch( error => {
+            let hash = req.get('hash');
+            if (hash in sessions) {
+                update(sessions[hash].contract, req.params.id, req.body).then((result) => {
+                    res.send('transaction submitted');
+                }).catch( error => {
+                    res.status(400);
+                    res.send(error);
+                });
+            } else {
                 res.status(400);
-                res.send(error);
-            });
+                res.send('The session doesn\'t exist');
+            }
         },
         delete: function(req, res){
-            deleteById(contract, req.params.id).then((result) => {
-                res.send('transaction submitted');
-            }).catch( error => {
+            let hash = req.get('hash');
+            if (hash in sessions) {
+                deleteById(sessions[hash].contract, req.params.id).then((result) => {
+                    res.send('transaction submitted');
+                }).catch( error => {
+                    res.status(400);
+                    res.send(error);
+                });
+            } else {
                 res.status(400);
-                res.send(error);
-            });
+                res.send('The session doesn\'t exist');
+            }
         }
     };
 };

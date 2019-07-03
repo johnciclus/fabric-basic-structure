@@ -1,11 +1,18 @@
 'use strict';
 
+const className = 'CreditOperation#';
 const { validateAll } = require('indicative');
-const creditOperationModel = require('../models/creditOperation');
+const creditOperationModel = require('../../models/creditOperation');
+const crypto = require('crypto');
 
 async function create(contract, creditOperation) {
     return new Promise(function(resolve, reject){
         validateAll(creditOperation, creditOperationModel.rules).then(() => {
+            const hash = crypto.createHash('md5').update(Date.now().toString()).digest('hex');
+
+            creditOperation.id = className+hash;
+            creditOperation.digitalSignature = crypto.createHash('md5').update(JSON.stringify(creditOperation)).digest('hex');
+
             contract.submitTransaction('createCreditOperation', creditOperation.id, JSON.stringify(creditOperation)).then( result => {
                 resolve(JSON.parse(result));
             }).catch((errors)=>{
@@ -22,6 +29,7 @@ async function find(contract, id) {
         if (!id) {
             reject('An identifier is mandatory');
         }
+        id = className+id;
 
         contract.evaluateTransaction('findCreditOperation', id).then( result => {
             resolve(JSON.parse(result));
@@ -44,6 +52,7 @@ async function findAll(contract) {
 async function update(contract, id, properties) {
     return new Promise(function(resolve, reject){
         let stringProperties = JSON.stringify(properties);
+        id = className+id;
 
         contract.submitTransaction('updateCreditOperation', id, stringProperties).then( result => {
             resolve(result);
@@ -56,6 +65,7 @@ async function update(contract, id, properties) {
 async function deleteById(contract, id) {
     return new Promise(function(resolve, reject){
         // Evaluate the specified transaction.
+        id = className+id;
         contract.submitTransaction('deleteCreditOperation', id).then( result => {
             resolve(result);
         }).catch((errors)=>{
