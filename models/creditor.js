@@ -5,15 +5,23 @@ let stringsObjects = require('./helpers/stringsObjects');
 let schema = {
     id:           'number',
     name:         'string',
+    cpf_cnpj:     'number',
+    external_id:  'string',
     address:      'string',
+    city:         'string',
+    state:        'string',
     score:        'number'
 };
 
 let format = {
-    id:           'required',
+    id:           'required|notString',
     name:         'required',
+    cpf_cnpj:     'required',
+    external_id:  'required',
     address:      'required',
-    score:        'required|notString'
+    city:         'required',
+    state:        'required',
+    score:        'notString'
 };
 
 module.exports = {

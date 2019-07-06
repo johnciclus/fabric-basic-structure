@@ -26,6 +26,8 @@ const grower = require('./routes/grower')(sessions);
 const creditor = require('./routes/creditor')(sessions);
 const creditGuarantee = require('./routes/creditGuarantee')(sessions);
 const creditOperation = require('./routes/creditOperation')(sessions);
+const channelID = 'mychannel';
+const contracts = ['grower', 'creditor', 'creditguarantee', 'creditoperation'];
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -88,12 +90,12 @@ async function connectWithGateway(userName) {
     }
 }
 
-async function getContract(gateway, channelID, contractID) {
+async function getNetwork(gateway, channelID) {
     return new Promise(function(resolve, reject) {
         // Get the network (channel) our contract is deployed to.
         gateway.getNetwork(channelID).then(network =>{
             // Get the contract from the network.
-            resolve(network.getContract(contractID));
+            resolve(network);
         }).catch((error)=>{
             console.log('error');
             console.log(error);
@@ -106,8 +108,13 @@ app.post('/api/registerCredentials',  upload.array('credentials'), function(req,
     // const credentialsName = req.params.id;
     return registerCredentials(req.files).then((status)=>{
         return connectWithGateway(status.userName).then((gateway)=>{
-            getContract(gateway, 'mychannel', 'bart').then((contract)=>{
-                sessions[status.hash] = {gateway: gateway, contract: contract};
+            getNetwork(gateway, channelID).then((network)=> {
+                let contractsReferences = contracts.map(contractID => { return {
+                    id: contractID,
+                    contract: network.getContract(contractID)
+                };}).reduce(function(obj, item){ obj[item.id] = item.contract; return obj; }, {});
+
+                sessions[status.hash] = {gateway: gateway, network: network, contracts: contractsReferences};
                 return res.send(status);
             });
         });
@@ -154,23 +161,26 @@ app.post('/api/creditOperation/:id', creditOperation.update);
 
 app.delete('/api/creditOperation/:id', creditOperation.delete);
 
-app.get('api/history/:id', function(req, res){
-    return new Promise(function(resolve, reject){
-        let hash = req.get('hash');
-        if (hash in sessions) {
-            if (!req.params.id) {
-                reject('An identifier is mandatory');
-            }
-            sessions[hash].contract.evaluateTransaction('getHistory', req.params.id).then( result => {
-                resolve(JSON.parse(result));
-            }).catch((errors)=>{
-                reject(errors);
-            });
-        } else {
-            res.status(400);
-            res.send('The session doesn\'t exist');
+app.get('/api/history/:classname/:id', function(req, res){
+    let hash = req.get('hash');
+    if (hash in sessions) {
+        if (!req.params.id) {
+            res.send('An identifier is mandatory');
+        } else if (!req.params.classname) {
+            res.send('A className is mandatory');
         }
-    });
+        const className = req.params.classname;
+
+        sessions[hash].contracts[className.toLowerCase()].evaluateTransaction('getHistory', req.params.id.toString()).then( result => {
+            let data = JSON.parse(result);
+            res.send(JSON.parse(data));
+        }).catch((errors)=>{
+            res.send(errors);
+        });
+    } else {
+        res.status(400);
+        res.send('The session doesn\'t exist');
+    }
 });
 
 app.listen(port, () => {

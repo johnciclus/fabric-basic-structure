@@ -5,23 +5,21 @@ let stringsObjects = require('./helpers/stringsObjects');
 let schema = {
     id:              'number',
     name:            'string',
-    type:            'string',
-    digitalAddress:  'string',
-    expirationDate:  'string',
-    value:           'number',
-    units:           'string',
-    owner:           'string'
+    productivity:    'number',
+    area:            'number',
+    city:            'string',
+    state:           'string',
+    grower:          'string'
 };
 
 let format = {
-    id:            'required',
+    id:            'required|notString',
     name:          'required',
-    type:          'required',
-    digitalAddress:'required',
-    expirationDate:'string',
-    value:         'required|notString',
-    units:         'required',
-    owner:         'required'
+    productivity:  'required|notString',
+    area:          'required|notString',
+    city:          'required',
+    state:         'required',
+    grower:        'required'
 };
 
 module.exports = {

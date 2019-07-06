@@ -3,15 +3,29 @@
 let stringsObjects = require('./helpers/stringsObjects');
 
 let schema = {
-    debtor:          'string',
+    type:            'string',
+    status:          'string',
+    number:          'string',
+    value:           'number',
+    unit:            'string',
+    issuer:          'string',
     creditor:        'string',
-    guarantee:       'string'
+    guarantees:      'array',
+    digitalAddress:  'string',
+    expirationDate:  'string'
 };
 
 let format = {
-    debtor:          'required',
+    type:            'required',
+    status:          'required',
+    number:          'required',
+    value:           'required|notString',
+    unit:            'required',
+    issuer:          'required',
     creditor:        'required',
-    guarantee:       'required'
+    guarantees:      'required',
+    digitalAddress:  '',
+    expirationDate:  '',
 };
 
 module.exports = {

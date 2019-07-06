@@ -1,8 +1,8 @@
 'use strict';
 
-const className = 'Grower#';
-const { validateAll } = require('indicative');
 const growerModel = require('../../models/grower');
+const { validateAll } = require('indicative');
+const contractID = 'grower';
 
 // function getCommand() {
 //     if (process.argv.length >= 3) {
@@ -22,9 +22,9 @@ const growerModel = require('../../models/grower');
 //         });
 //         break;
 //     case 'find':
-//         find(command.params[0]).then((creditGuarantee) => {
-//             if (creditGuarantee) {
-//                 console.log(`Transaction has been evaluated, result is: ${creditGuarantee.toString()}`);
+//         find(command.params[0]).then((creditguarantee) => {
+//             if (creditguarantee) {
+//                 console.log(`Transaction has been evaluated, result is: ${creditguarantee.toString()}`);
 //             }
 //             else {
 //                 console.log('Nothing founded');
@@ -53,7 +53,7 @@ const growerModel = require('../../models/grower');
 async function create(contract, grower) {
     return new Promise(function(resolve, reject){
         validateAll(grower, growerModel.rules).then(() => {
-            grower.id = className+grower.id;
+            grower.id = grower.id.toString();
             contract.submitTransaction('createGrower', grower.id, JSON.stringify(grower)).then( result => {
                 resolve(JSON.parse(result));
             }).catch((errors)=>{
@@ -70,9 +70,7 @@ async function find(contract, id) {
         if (!id) {
             reject('An identifier is mandatory');
         }
-        id = className+id;
-
-        contract.evaluateTransaction('findGrower', id).then( result => {
+        contract.evaluateTransaction('findGrower', id.toString()).then( result => {
             resolve(JSON.parse(result));
         }).catch((errors)=>{
             reject(errors);
@@ -93,9 +91,8 @@ async function findAll(contract) {
 async function update(contract, id, properties) {
     return new Promise(function(resolve, reject){
         let stringProperties = JSON.stringify(properties);
-        id = className+id;
 
-        contract.submitTransaction('updateGrower', id, stringProperties).then( result => {
+        contract.submitTransaction('updateGrower', id.toString(), stringProperties).then( result => {
             resolve(result);
         }).catch((errors)=>{
             reject(errors);
@@ -105,9 +102,7 @@ async function update(contract, id, properties) {
 
 async function deleteById(contract, id) {
     return new Promise(function(resolve, reject){
-        id = className+id;
-        // Evaluate the specified transaction.
-        contract.submitTransaction('deleteGrower', id).then( result => {
+        contract.submitTransaction('deleteGrower', id.toString()).then( result => {
             resolve(result);
         }).catch((errors)=>{
             reject(errors);
@@ -120,12 +115,18 @@ module.exports = function(sessions) {
         create : function(req, res){
             let hash = req.get('hash');
             if (hash in sessions) {
-                create(sessions[hash].contract, req.body).then((result) => {
-                    res.send({status: 'Grower created', details: result});
-                }).catch( error => {
+                const contract = sessions[hash].contracts[contractID];
+                if (contract){
+                    create(contract, req.body).then((result) => {
+                        res.send({status: 'Grower created', details: result});
+                    }).catch( error => {
+                        res.status(400);
+                        res.send(error);
+                    });
+                } else {
                     res.status(400);
-                    res.send(error);
-                });
+                    res.send('The contract doesn\'t exist');
+                }
             } else {
                 res.status(400);
                 res.send('The session doesn\'t exist');
@@ -134,13 +135,19 @@ module.exports = function(sessions) {
         find : function(req, res){
             let hash = req.get('hash');
             if (hash in sessions) {
-                find(sessions[hash].contract, req.params.id).then((grower) => {
-                    let growerObj = JSON.parse(grower);
-                    res.send(growerObj);
-                }).catch( error => {
+                const contract = sessions[hash].contracts[contractID];
+                if (contract){
+                    find(contract, req.params.id).then((grower) => {
+                        let growerObj = JSON.parse(grower);
+                        res.send(growerObj);
+                    }).catch( error => {
+                        res.status(400);
+                        res.send(error);
+                    });
+                } else {
                     res.status(400);
-                    res.send(error);
-                });
+                    res.send('The contract doesn\'t exist');
+                }
             } else {
                 res.status(400);
                 res.send('The session doesn\'t exist');
@@ -149,13 +156,19 @@ module.exports = function(sessions) {
         findAll : function(req, res){
             let hash = req.get('hash');
             if (hash in sessions) {
-                findAll(sessions[hash].contract).then((growers) => {
-                    let growersObj = JSON.parse(growers);
-                    res.send(growersObj);
-                }).catch( error => {
+                const contract = sessions[hash].contracts[contractID];
+                if (contract){
+                    findAll(contract).then((growers) => {
+                        let growersObj = JSON.parse(growers);
+                        res.send(growersObj);
+                    }).catch( error => {
+                        res.status(400);
+                        res.send(error);
+                    });
+                } else {
                     res.status(400);
-                    res.send(error);
-                });
+                    res.send('The contract doesn\'t exist');
+                }
             } else {
                 res.status(400);
                 res.send('The session doesn\'t exist');
@@ -164,12 +177,18 @@ module.exports = function(sessions) {
         update: function(req, res){
             let hash = req.get('hash');
             if (hash in sessions) {
-                update(sessions[hash].contract, req.params.id, req.body).then((result) => {
-                    res.send('transaction submitted');
-                }).catch( error => {
+                const contract = sessions[hash].contracts[contractID];
+                if (contract){
+                    update(contract, req.params.id, req.body).then((result) => {
+                        res.send('transaction submitted');
+                    }).catch( error => {
+                        res.status(400);
+                        res.send(error);
+                    });
+                } else {
                     res.status(400);
-                    res.send(error);
-                });
+                    res.send('The contract doesn\'t exist');
+                }
             } else {
                 res.status(400);
                 res.send('The session doesn\'t exist');
@@ -178,12 +197,18 @@ module.exports = function(sessions) {
         delete: function(req, res){
             let hash = req.get('hash');
             if (hash in sessions) {
-                deleteById(sessions[hash].contract, req.params.id).then((result) => {
-                    res.send('transaction submitted');
-                }).catch( error => {
+                const contract = sessions[hash].contracts[contractID];
+                if (contract) {
+                    deleteById(contract, req.params.id).then((result) => {
+                        res.send('transaction submitted');
+                    }).catch(error => {
+                        res.status(400);
+                        res.send(error);
+                    });
+                } else {
                     res.status(400);
-                    res.send(error);
-                });
+                    res.send('The contract doesn\'t exist');
+                }
             } else {
                 res.status(400);
                 res.send('The session doesn\'t exist');
