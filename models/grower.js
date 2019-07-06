@@ -16,9 +16,9 @@ let schema = {
 let format = {
     id:           'required|notString',
     name:         'required',
-    cpf_cnpj:     'required',
+    cpf_cnpj:     'required|notString',
     external_id:  'required',
-    address:      'required',
+    address:      '',
     city:         'required',
     state:        'required',
     score:        'notString'

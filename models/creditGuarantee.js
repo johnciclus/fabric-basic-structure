@@ -27,3 +27,4 @@ module.exports = {
     format: format,
     rules: stringsObjects.mergeObjects(schema, format)
 };
+
