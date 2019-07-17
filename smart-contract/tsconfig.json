@@ -1,0 +1,19 @@
+{
+  "compileOnSave": true,
+  "forceConsistentCasingInFileNames": true,
+  "moImplictReturns": true,
+  "strict": true,
+  "noUnusedLocals": true,
+  "compilerOptions": {
+    "module": "commonjs",
+    "sourceMap": true,
+    "target": "es6",
+    "lib": [
+    ],
+    "allowJs": true,
+    "outDir": "dist"
+  },
+  "include": [
+    "./src/**/*"
+  ]
+}

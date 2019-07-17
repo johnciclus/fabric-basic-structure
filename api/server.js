@@ -22,12 +22,11 @@ const credentialsPath = path.join(process.cwd(), 'wallet');
 
 let sessions = {};
 
-const grower = require('./routes/grower')(sessions);
 const creditor = require('./routes/creditor')(sessions);
 const creditGuarantee = require('./routes/creditGuarantee')(sessions);
 const creditOperation = require('./routes/creditOperation')(sessions);
 const channelID = 'mychannel';
-const contracts = ['grower', 'creditor', 'creditguarantee', 'creditoperation'];
+const contracts = ['registry'];
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -120,16 +119,6 @@ app.post('/api/registerCredentials',  upload.array('credentials'), function(req,
         });
     });
 });
-
-app.get('/api/grower/', grower.findAll);
-
-app.get('/api/grower/:id', grower.find);
-
-app.post('/api/grower/', grower.create);
-
-app.post('/api/grower/:id', grower.update);
-
-app.delete('/api/grower/:id', grower.delete);
 
 app.get('/api/creditor/', creditor.findAll);
 

@@ -11,6 +11,7 @@ networks:
 services:
   ca.example.com:
     image: hyperledger/fabric-ca
+    container_name: ca.example.com
     environment:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca.example.com
@@ -21,7 +22,6 @@ services:
     command: sh -c 'fabric-ca-server start -b admin:adminpw'
     volumes:
       - ./crypto-config/peerOrganizations/org1.example.com/ca/:/etc/hyperledger/fabric-ca-server-config
-    container_name: ca.example.com
     networks:
       - basic
 
